@@ -2,8 +2,7 @@ name: Continuous Integration
 
 on:
   push:
-    branches:
-      - "ready/**"
+    branches: [ ready ]
 
 jobs:
   build:
