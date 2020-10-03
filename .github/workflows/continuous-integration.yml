@@ -18,7 +18,7 @@ jobs:
         run: mvn install
 
       - name: To Git
-        run:
+        run: |
           git checkout ${GITHUB_REF#refs/heads/}
           git rebase origin/master
           git branch master
