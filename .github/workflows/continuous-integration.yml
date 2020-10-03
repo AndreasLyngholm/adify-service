@@ -15,7 +15,9 @@ jobs:
           fetch-depth: 0
 
       - name: Compile
-        run: mvn install
+        run: |
+          mvn install
+          mvn test -DskipTests=false -Dgroups=fast
 
       - name: To Git
         run: |
