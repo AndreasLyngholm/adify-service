@@ -1,26 +1,26 @@
 name: Continuous Integration
 
-on:
-  push:
-    branches:
-      - "ready/**"
+  on:
+    push:
+      branches:
+        - "ready/**"
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+  jobs:
+    build:
+      runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+      steps:
+        - uses: actions/checkout@v2
+          with:
+            fetch-depth: 0
 
-      - name: Compile
-        run: mvn install
+        - name: Compile
+          run: mvn install
 
-      - name: To Git
-        run:
-          git checkout ${GITHUB_REF#refs/heads/}
-          git rebase origin/master
-          git branch master
-          git push origin master:master
-          git push origin :${GITHUB_REF#refs/heads/}
+        - name: To Git
+          run:
+            git checkout ${GITHUB_REF#refs/heads/}
+            git rebase origin/master
+            git branch master
+            git push origin master:master
+            git push origin :${GITHUB_REF#refs/heads/}
