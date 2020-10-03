@@ -7,6 +7,9 @@ class Main {
         new Subscription("ad", "fetch-product-page", (body, sender) -> {
           AdifyService adify = new AdifyService(new Adify(new HerokuGetRequest("adify")), body, sender);
           adify.execute();
+
+
+          
         })
     });
   }
